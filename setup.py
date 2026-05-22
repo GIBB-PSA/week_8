@@ -12,8 +12,8 @@ VIRTUAL_DIRS = [
     "usr/local/bin"
 ]
 
-TOTAL_FILES = 100
-MAX_DEPTH = 10
+TOTAL_FILES = 5_000
+MAX_DEPTH = 15
 EXTENSIONS = [".json", ".log", ".txt", ".conf", ".yml", ".bak", ".csv", ".tmp"]
 OUTPUT_FILE = r"generated_files_list.txt"
 
