@@ -5,8 +5,8 @@ from datetime import datetime
 
 FILE_LIST_PATH = "generated_files_list.txt"
 LOG_FILE_PATH = "file_activity.log"
-NUM_ACTIONS = 50
-DIFFICULTY = 3
+NUM_ACTIONS = random.randint(10, 200)
+DIFFICULTY = 1
 
 
 def get_random_string(max_length=4096):
