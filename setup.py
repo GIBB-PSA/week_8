@@ -26,6 +26,7 @@ def generate_payload(size):
 
 def build_random_filesystem():
     tracked_files = []
+    folder_count = 16
     for d in VIRTUAL_DIRS:
         (ROOT_DIR / d).mkdir(parents=True, exist_ok=True)
 
@@ -44,6 +45,7 @@ def build_random_filesystem():
                 new_dir_name = f"{''.join(random.choices(string.ascii_lowercase, k=8))}"
                 current_path = current_path / new_dir_name
                 current_path.mkdir(parents=True, exist_ok=True)
+                folder_count += 1
         current_path.mkdir(parents=True, exist_ok=True)
         ext = random.choice(EXTENSIONS)
         filename = f"{''.join(random.choices(string.ascii_lowercase + string.digits, k=8))}{ext}"
@@ -53,11 +55,11 @@ def build_random_filesystem():
 
         tracked_files.append(filepath.absolute().__str__())
         if len(tracked_files) % 250 == 0:
-            print(f"\t{len(tracked_files)} / {TOTAL_FILES} Dateien erstellt.")
+            print(f"\t{len(tracked_files)} / {TOTAL_FILES} Dateien erstellt")
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write('\n'.join(tracked_files))
-    print(f"Es wurden {TOTAL_FILES} erstellt.")
+    print(f"Es wurden {folder_count} Ordner und {TOTAL_FILES} Dateien erstellt")
 
 
 if __name__ == "__main__":
