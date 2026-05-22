@@ -3,7 +3,6 @@ import random
 import string
 from datetime import datetime
 
-# --- Konfiguration ---
 FILE_LIST_PATH = "generated_files_list.txt"
 LOG_FILE_PATH = "file_activity.log"
 NUM_ACTIONS = 50
@@ -11,14 +10,12 @@ DIFFICULTY = 3
 
 
 def get_random_string(max_length=4096):
-    """Generiert einen zufälligen String (0 bis 4096 Zeichen)."""
     length = random.randint(0, max_length)
     chars = string.ascii_letters + string.digits + " " * 15 + "\n" * 2
     return ''.join(random.choice(chars) for _ in range(length))
 
 
 def load_active_files(filepath):
-    """Lädt die Dateipfade und filtert störende Präfixe heraus."""
     active_files = []
     if not os.path.exists(filepath):
         return active_files
